@@ -1,0 +1,113 @@
+NAME
+    Text::Phonetic - A module implementing various phonetic algorithms
+
+SYNOPSIS
+      use Text::Phonetic;
+      
+  my $phonetic = Text::Phonetic::Metaphone->new();
+      $encoded_string = $phonetic->encode($string);
+      @encoded_list = $phonetic->encode(@list);
+      
+  my $same = $phonetic->compare($string1,$string2);
+
+    This module provides an easy and convinient way to encode names with
+    various phonetic algorithms. It acts as a wrapper arround other phonetic
+    algorithm modules like Text::Metaphone, Text::DoubleMetaphone,
+    Text::Soundex and also implements some other algorithms such as
+    Text::Phonetic::DaitchMokotoff, Text::Phonetic::Koeln,
+    Text::Phonetic::Phonem and Text::Phonetic::Phonix.
+
+    The module can easily be subclassed.
+
+DESCRIPTION
+  new
+     $obj = Text::Phonetic::SUBCLASS->new({ %PARAMETERS })
+
+    You can pass arbitrary attributes to the constructor. The only global
+    attribute is "unidecode" which defaults to 1 if not set. This attribute
+    controlls if non-latin characters should be transliterated to A-Z (see
+    also Text::Unidecode).
+
+    Additional attributes may be defined by the various implementation
+    classes.
+
+  encode
+     $RETURN_STRING = $obj->encode($STRING);
+     OR
+     @RETURN_LIST = $obj->encode(@LIST);
+     OR
+     $RETURN_LIST_REF = $obj->encode(@LIST);
+
+    Encodes the given string or list of strings. Returns a single value,
+    array or array reference depending on the caller context and parameters.
+
+  compare
+     $RETURN_CODE = $obj->compare($STRING1,$STRING2);
+
+    The return code is an integer between 100 and 0 indicating the
+    likelihood that the to results are the same. 100 means that the strings
+    are completely identical. 99 means that the strings match after all
+    non-latin characters have been transliterated. Values in between 98 and
+    1 usually mean that the given strings match. 0 means that the used
+    alogorithm couldn't match the two strings at all. "compare" is a
+    shortcut to the "$obj-&gt;_do_compare($CODE1,$CODE2)" method.
+
+SUBLCASSING
+    You can easily subclass Text::Phonetic and add your own phonetic
+    algorithm. All subclasses must use Text::Phonetic as their base class,
+    and the following methods need to be implemented:
+
+  _do_encode
+     $RESULT = $obj->_do_encode($STRING);
+
+    This method does the actual encoding. It should return only one element.
+    (eg. string or some kind of reference)
+
+  _do_compare
+     $RETURN_STRING = $obj->_do_compare($RESULT1,$RESULT2);
+
+    If your "_do_encode" method doesn't return a single scalar value you
+    also might need to implement a comparison method. It takes two results
+    as returned by "_do_encode" and returns an integer value between 98 and
+    0 (see "compare").
+
+  Object structure
+    The object is a simple Hash reference containing all parameters passed
+    during construction.
+
+  Helper class methods
+    _is_inlist
+       Text::Phonetic::_is_inlist($STRING,@LIST);
+       OR
+       Text::Phonetic::_is_inlist($STRING,$LIST_REF);
+
+      Returns a true value if $STRING is in the supplied list. Otherwise
+      returns false.
+
+    _compare_list
+       Text::Phonetic::_compare_list($LIST1_REF,$LIST2_REF);
+
+      Compares the two arrays and returns true if at least one element is
+      equal (ignoring the position) in both lists.
+
+SUPPORT
+    Please report any bugs or feature requests to
+    "text-phonetic@rt.cpan.org", or through the web interface at
+    <http://rt.cpan.org>. I will be notified, and then you'll automatically
+    be notified of progress on your bug as I make changes.
+
+AUTHOR
+        Maroš Kollár
+        CPAN ID: MAROS
+        maros [at] k-1.com
+        http://www.k-1.com
+
+COPYRIGHT
+    Text::Phonetic is Copyright (c) 2006,2007 Maroš. Kollár.
+
+    This program is free software; you can redistribute it and/or modify it
+    under the same terms as Perl itself.
+
+    The full text of the license can be found in the LICENSE file included
+    with this module.
+
