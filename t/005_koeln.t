@@ -2,7 +2,7 @@
 
 # t/005_koeln.t - Test koelner phonetik 
 
-use Test::More tests=>15;
+use Test::More tests=>17;
 use utf8;
 
 use Text::Phonetic::Koeln;
@@ -26,6 +26,8 @@ my %TEST = (
 	becker					=> 147,
 	hoffmann				=> 36,
 	schäfer					=> 837,
+	cater                   => 427,
+	axel                    => '0485',
 );
 
 isa_ok($cologne,'Text::Phonetic::Koeln');

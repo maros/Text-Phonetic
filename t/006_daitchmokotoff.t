@@ -2,7 +2,7 @@
 
 # t/006_daitchmokotoff.t - daitchmokotoff test 
 
-use Test::More tests=>25;
+use Test::More tests=>27;
 use utf8;
 
 use Text::Phonetic::DaitchMokotoff;
@@ -42,3 +42,6 @@ isa_ok($dm,'Text::Phonetic::DaitchMokotoff');
 while (my($key,$value) = each(%TEST)) {
 	test_encode($dm,$key,$value);
 }
+
+is($dm->compare('LIPSHITZ','LIPPSZYC'),50);
+is($dm->compare('Hase','Bär'),0);

@@ -1,6 +1,6 @@
 # Module Specific Stuff
 meta/*
-Text-Phonetic-*
+Text-Phonetic-*.*.tar.gz
 
 # Eclipse stuff
 .includepath
@@ -46,6 +46,4 @@ Text-Phonetic-*
 \B\.DS_Store
 #   Mac OSX SMB mount metadata files
 \B\._
-# Avoid archives of this distribution
-\bBabilu-[\d\.\_]+
-\bbabilu_local.pl+
+

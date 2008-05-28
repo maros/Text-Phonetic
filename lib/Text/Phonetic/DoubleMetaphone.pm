@@ -20,7 +20,8 @@ sub _do_compare
 	my $result1 = shift;
 	my $result2 = shift;
 
-	return Text::Phonetic::_compare_list($result1,$result2);	
+	return 50 
+	   if Text::Phonetic::_compare_list($result1,$result2);	
 
 	return 0;
 }
