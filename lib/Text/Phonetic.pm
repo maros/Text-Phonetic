@@ -11,7 +11,7 @@ use Text::Unidecode;
 use Carp;
 
 use vars qw($VERSION);
-$VERSION = '1.04';
+$VERSION = '1.05';
 
 use 5.008000;
 
@@ -46,7 +46,7 @@ sub encode
 		        $string;
 			push @result_list,$obj->_do_encode($string_decode);
 		}
-		return wantarray ? @result_list:\@result_list;
+		return wantarray ? @result_list : \@result_list;
 	}
 	return;
 }

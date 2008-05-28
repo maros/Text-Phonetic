@@ -13,3 +13,7 @@ Revision history for Perl module Text::Phonetic
 1.04 Sun Apr 13 2008
     - Fixed Text::Phonetic::Phonix
     - Switched to Module::Install
+1.05 * May * 2008
+    - More tests
+    - Test coverage 94.8%
+    - Fixed compare bugs
