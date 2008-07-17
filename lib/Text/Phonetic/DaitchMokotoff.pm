@@ -7,8 +7,6 @@ use utf8;
 
 use base qw(Text::Phonetic);
 
-use Text::Metaphone;
-
 use vars qw($VERSION @RULES);
 $VERSION = $Text::Phonetic::VERSION;
 
@@ -227,6 +225,8 @@ sub _add_result
 }
 
 1;
+
+=encoding utf8
 
 =pod
 

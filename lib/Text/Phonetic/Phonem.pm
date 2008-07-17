@@ -61,6 +61,8 @@ sub _do_encode
     return $string;
 }
 
+=encoding utf8
+
 =pod
 
 =head1 NAME
@@ -86,6 +88,9 @@ The Perl implementation was written by Martin Wilz
 (L<http://wilz.de/view/Themen/MagisterArbeit>)
 
 =head1 AUTHOR
+
+    Martin Wilz 
+    http://wilz.de/view/Themen/MagisterArbeit
 
     Maroš Kollár
     CPAN ID: MAROS

@@ -249,6 +249,8 @@ sub _replace
 
 1;
 
+=encoding utf8
+
 =pod
 
 =head1 NAME
@@ -259,7 +261,7 @@ Text::Phonetic::Phonix - Phonix algorithm
 
 Phonix is an improved version of Soundex, developed by T.N. Gadd. Phonix 
 has been incorporated into a number of WAIS implementations, including 
-freeWAIS
+freeWAIS.
 
 There seem to be two variants of the Phonix algorithm. One which also includes
 the first letter in the numeric code, and one that doesn't. This module is

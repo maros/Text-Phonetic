@@ -162,6 +162,8 @@ sub _do_encode
 
 1;
 
+=encoding utf8
+
 =pod
 
 =head1 NAME

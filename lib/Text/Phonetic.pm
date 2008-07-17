@@ -122,6 +122,8 @@ sub _compare_list
 
 "Schmitt ~ Smith ~ Schmitz";
 
+=encoding utf8
+
 =pod
 
 =head1 NAME
