@@ -54,7 +54,7 @@ $CONSONANT = '[BCDFGHJLMNPQRSTVXZXY]';
 	[qr/GHNE/,'NE'],
 	[qr/GNES$/,'NS'],
 	[qr/^GN/,'N'],
-	[qr/(\w)GN($CONSONANT)v/,'1N2'],
+	[qr/(\w)GN($CONSONANT)/,'1N2'],
 	[qr/^PS/,'S'],
 	[qr/^PT/,'T'],
 	[qr/^CZ/,'C'],
@@ -68,7 +68,7 @@ $CONSONANT = '[BCDFGHJLMNPQRSTVXZXY]';
 	[qr/HROUGH/,'REW'],
 	[qr/OUGH/,'OF'],
 	[qr/($VOVEL)Q($VOVEL)/,'1KW2'],
-	[qr/($VOVEL)Q($VOVEL)/,'1Y2'],
+	[qr/($VOVEL)J($VOVEL)/,'1Y2'],
 	[qr/^YJ($VOVEL)/,'Y1'],
 	[qr/^GH/,'G'],
 	[qr/($VOVEL)GH$/,'1E'],
@@ -244,6 +244,7 @@ sub _replace
 	
 	$replace =~ s/1/$pos1/ if (defined $pos1);
 	$replace =~ s/2/$pos2/ if (defined $pos2);
+
 	return $replace;
 }
 
