@@ -29,5 +29,6 @@ t/005_koeln.t
 t/006_daitchmokotoff.t
 t/007_phonix.t
 t/008_phonem.t
+t/009_empty.t
 t/global.pl
 Todo

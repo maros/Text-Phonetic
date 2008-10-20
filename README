@@ -41,6 +41,8 @@ DESCRIPTION
     Encodes the given string or list of strings. Returns a single value,
     array or array reference depending on the caller context and parameters.
 
+    Returns undef on an empty/undefined/whitespace only string.
+
   compare
      $RETURN_CODE = $obj->compare($STRING1,$STRING2);
 
@@ -60,8 +62,8 @@ SUBLCASSING
   _do_encode
      $RESULT = $obj->_do_encode($STRING);
 
-    This method does the actual encoding. It should return only one element.
-    (eg. string or some kind of reference)
+    This method does the actual encoding. It should return either a string
+    or an array reference.
 
   _do_compare
      $RETURN_STRING = $obj->_do_compare($RESULT1,$RESULT2);
@@ -93,8 +95,9 @@ SUBLCASSING
 SUPPORT
     Please report any bugs or feature requests to
     "text-phonetic@rt.cpan.org", or through the web interface at
-    <http://rt.cpan.org>. I will be notified, and then you'll automatically
-    be notified of progress on your bug as I make changes.
+    <http://rt.cpan.org/Public/Bug/Report.html?Queue=Text::Phonetic>. I will
+    be notified, and then you'll automatically be notified of progress on
+    your report as I make changes.
 
 AUTHOR
         Maroš Kollár
