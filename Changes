@@ -1,20 +1,32 @@
 Revision history for Perl module Text::Phonetic
 
-1.00 Sun Nov 11 2007
-    - original version; created by ExtUtils::ModuleMaker 0.49
-1.01 Sun Dec 10 2007
-    - Corrected depenedicies in Makefile and META.yml, so that cpantesters tests don't fail
-1.02 Sun Dec 12 2007
-    - Corrected depenedicies in Makefile and META.yml, so that cpantesters tests don't fail
-1.03 Fri Apr 13 2008
-    - Makefile not executable
-    - Documentation
-    - Added Text::Phonetic::Phonem
-1.04 Sun Apr 13 2008
-    - Fixed Text::Phonetic::Phonix
-    - Switched to Module::Install
+1.07 Thu Oct 20 2008
+    - Fixed warnings on empty strings (reported by Jürgen Peters)
+    - Returns undef on empty strings
+
+1.06 Thu Jul 16 2008
+    - Fixed rule bug in T::P::Phonix (reported by Bart Massey)
+
 1.05 Thu Jul 16 2008
     - More tests
     - Test coverage 94.8%
     - Fixed compare bugs
     - Pod encoding
+
+1.04 Sun Apr 13 2008
+    - Fixed Text::Phonetic::Phonix
+    - Switched to Module::Install
+    
+1.03 Fri Apr 13 2008
+    - Makefile not executable
+    - Documentation
+    - Added Text::Phonetic::Phonem
+
+1.02 Sun Dec 12 2007
+    - Corrected depenedicies in Makefile and META.yml, so that cpantesters tests don't fail
+    
+1.01 Sun Dec 10 2007
+    - Corrected depenedicies in Makefile and META.yml, so that cpantesters tests don't fail
+    
+1.00 Sun Nov 11 2007
+    - original version; created by ExtUtils::ModuleMaker 0.49

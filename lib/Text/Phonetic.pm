@@ -11,7 +11,7 @@ use Text::Unidecode;
 use Carp;
 
 use vars qw($VERSION);
-$VERSION = '1.05';
+$VERSION = '1.07';
 
 use 5.008000;
 
@@ -34,22 +34,24 @@ sub encode
 {
 	my $obj = shift;
 
+    # Single value
 	if (scalar(@_) == 1) {
 		my $string = shift;
 		$string = unidecode($string) if ($obj->{'unidecode'});
+		return undef unless defined $string && $string !~ /^\s*$/;
 		return $obj->_do_encode($string);
+	# Expand list
 	} elsif (scalar(@_) > 1) {
-		my @result_list;
-		foreach my $string (@_) {
-		    my $string_decode = ($obj->{'unidecode'}) ? 
-		        unidecode($string) : 
-		        $string;
-			push @result_list,$obj->_do_encode($string_decode);
-		}
+	    my @result_list;
+	    foreach my $string (@_) {
+	        push @result_list,$obj->encode($string);
+	    }
 		return wantarray ? @result_list : \@result_list;
 	}
+	# Fallback
 	return;
 }
+
 
 # ----------------------------------------------------------------
 sub compare
@@ -58,6 +60,9 @@ sub compare
 	my $obj = shift;
 	my $string1 = shift;
 	my $string2 = shift;
+
+    return 0 unless defined $string1 && $string1 !~ /^\s*$/;
+    return 0 unless defined $string2 && $string2 !~ /^\s*$/;
 
 	# Extremely rare case ;-)	
 	return 100 if ($string1 eq $string2);
@@ -69,6 +74,11 @@ sub compare
 		# Also not very likely, but has to be checked
 		return 99 if ($string1 eq $string2);
 	}
+	
+	my $value1 = $obj->_do_encode($string1);
+	my $value2 = $obj->_do_encode($string2);
+	
+	return 0 unless (defined $value1 && defined $value2);
 	
 	return $obj->_do_compare($obj->_do_encode($string1),$obj->_do_encode($string2));
 }
@@ -89,11 +99,43 @@ sub _do_compare
 # Utility functions
 # ================================================================
 
+## ----------------------------------------------------------------
+#sub _reduce_list
+## ----------------------------------------------------------------
+#{
+#    my @list = @_;
+#    
+#    my $is_ref = 0;
+#    my $is_string = 0;
+#    
+#    foreach (@list) {
+#        if (ref $_) {
+#            $is_ref = 1;
+#        } else {
+#            $is_string = 1;
+#        }
+#    }
+#        
+#    if ($is_ref && $is_string) {
+#        die('Return type mismatch')
+#    }
+#    
+#    if ($is_ref) {
+#        
+#    }
+#    
+#    if ($is_string) {
+#        return join ' ',@list;
+#    }
+#}
+
+
 # ----------------------------------------------------------------
 sub _is_inlist
 # ----------------------------------------------------------------
 {
 	my $string = shift;
+	return 0 unless defined $string;
 	my $list = (scalar @_ == 1 && ref($_[0]) eq 'ARRAY') ? shift : \@_;
 	 
 	return 1 if grep {$string eq $_ } @$list;
@@ -173,6 +215,8 @@ Additional attributes may be defined by the various implementation classes.
 Encodes the given string or list of strings. Returns a single value, array or
 array reference depending on the caller context and parameters.
 
+Returns undef on an empty/undefined/whitespace only string.
+
 =head2 compare
 
  $RETURN_CODE = $obj->compare($STRING1,$STRING2);
@@ -180,8 +224,8 @@ array reference depending on the caller context and parameters.
 The return code is an integer between 100 and 0 indicating the likelihood that
 the to results are the same. 100  means that the strings are completely
 identical. 99 means that the strings match after all non-latin characters
-have been transliterated. Values in between 98 and 1 usually mean that the given 
-strings match. 0 means that the used alogorithm couldn't match the two 
+have been transliterated. Values in between 98 and 1 usually mean that the 
+given strings match. 0 means that the used alogorithm couldn't match the two 
 strings at all.
 C<compare> is a shortcut to the C<$obj-&gt;_do_compare($CODE1,$CODE2)> method. 
 
@@ -195,8 +239,8 @@ following methods need to be implemented:
 
  $RESULT = $obj->_do_encode($STRING);
 
-This method does the actual encoding. It should return only one element. (eg.
-string or some kind of reference)
+This method does the actual encoding. It should return either a string or
+an array reference.
 
 =head2 _do_compare
 

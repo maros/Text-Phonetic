@@ -16,5 +16,6 @@ requires        'Text::DoubleMetaphone' => 0;
 requires        'Exporter::Lite'        => 0;
 build_requires  'Test::Pod'             => 0;
 build_requires  'Test::Pod::Coverage'   => 0;
+build_requires  'Test::NoWarnings'      => 0;
 
 WriteAll;
