@@ -1,6 +1,6 @@
 # -*- perl -*-
 
-# t/008_phonem.t - phonem test 
+# t/009_empty.t - empty string test 
 
 use Test::More tests=>(8*4)+1;
 use Test::NoWarnings;
