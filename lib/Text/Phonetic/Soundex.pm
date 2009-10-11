@@ -1,25 +1,45 @@
-# ================================================================
+# ============================================================================
 package Text::Phonetic::Soundex;
-# ================================================================
-use strict;
-use warnings;
+# ============================================================================
+use Moose;
 use utf8;
 
-use base qw(Text::Phonetic);
+use Text::Soundex qw( soundex soundex_nara );
 
-use Text::Soundex qw( soundex );
+extends qw(Text::Phonetic);
 
-use vars qw($VERSION);
-$VERSION = $Text::Phonetic::VERSION;
+has 'nara'=> (
+    is              => 'rw',
+    isa             => 'Bool',
+    documentation   => q[Use the soundex variant maintained by the National Archives and Records Administration (NARA)],
+    default         => 0,
+);
 
-# -------------------------------------------------------------
-sub _do_encode
-# -------------------------------------------------------------
-{
-	my $obj = shift;
-	my $string = shift;
-	
-	return soundex($string);
+has 'nocode'=> (
+    is              => 'rw',
+    isa             => 'Str',
+    documentation   => q[Redefine the value that will be returned if the input string contains no identifiable sounds within it],
+    predicate       => 'has_nocode',
+);
+
+__PACKAGE__->meta->make_immutable;
+
+our $VERSION = $Text::Phonetic::VERSION;
+
+sub _do_encode {
+    my ($self,$string) = @_;
+    
+    #local $Text::Soundex::nocode;
+    
+    if ($self->has_nocode) {
+        $Text::Soundex::nocode = $self->nocode;
+    }
+    
+    if ($self->nara) {
+        return soundex_nara($string);
+    } else {
+        return soundex($string);
+    }
 }
 
 1;
@@ -38,6 +58,13 @@ Soundex is a phonetic algorithm for indexing names by sound, as pronounced in
 English. Soundex is the most widely known of all phonetic algorithms. 
 Improvements to Soundex are the basis for many modern phonetic algorithms. 
 (Wikipedia, 2007)
+
+If the parameter C<nara> is set to a true value, a variant of the soundex
+algorithm maintained by the National Archives and Records Administration 
+(NARA) will be used.
+
+If the parameter C<nocode> redefines the value that will be returned if the 
+input string contains no identifiable sounds within it.
 
 This module is a thin wrapper arround L<Text::Soundex>.
 
