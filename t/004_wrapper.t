@@ -61,9 +61,9 @@ if (run_conditional('Text::Metaphone','7')) {
     test_encode($metaphone,"moist","MST");
     test_encode($metaphone,"Gutenberg","KTNBRK");
     
-    my $metaphone_length = Text::Phonetic->new(
+    my $metaphone_length = Text::Phonetic->load(
         algorithm   => 'Metaphone',
-        max_length => 4
+        max_length  => 4
     );
     isa_ok($metaphone_length,'Text::Phonetic::Metaphone');
     test_encode($metaphone_length,"recrudescence","RKRT");
