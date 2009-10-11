@@ -1,14 +1,20 @@
 NAME
-    Text::Phonetic - A module implementing various phonetic algorithms
+    Text::Phonetic - A base class for phonetic algorithms
 
 SYNOPSIS
-      use Text::Phonetic;
-      
-  my $phonetic = Text::Phonetic::Metaphone->new();
+      use Text::Phonetic::Metaphone;
+  
+      my $phonetic = Text::Phonetic::Metaphone->new();
       $encoded_string = $phonetic->encode($string);
       @encoded_list = $phonetic->encode(@list);
-      
-  my $same = $phonetic->compare($string1,$string2);
+  
+      my $same = $phonetic->compare($string1,$string2);
+
+    Or
+
+      use Text::Phonetic;
+      my $phonetic = Text::Phonetic->load( algorithm => 'Phonix' );
+      $encoded_string = $phonetic->encode($string);
 
     This module provides an easy and convinient way to encode names with
     various phonetic algorithms. It acts as a wrapper arround other phonetic
@@ -20,8 +26,9 @@ SYNOPSIS
     The module can easily be subclassed.
 
 DESCRIPTION
-  new
-     $obj = Text::Phonetic::SUBCLASS->new({ %PARAMETERS })
+  Constructors
+   new
+     $obj = Text::Phonetic::SUBCLASS->new(%PARAMETERS)
 
     You can pass arbitrary attributes to the constructor. The only global
     attribute is "unidecode" which defaults to 1 if not set. This attribute
@@ -31,7 +38,14 @@ DESCRIPTION
     Additional attributes may be defined by the various implementation
     classes.
 
-  encode
+   load
+     $obj = Text::Phonetic->new(algorithm => $algorithm, %PARAMETERS)
+
+    Alternative constructor which also loads the requested algorithm
+    subclass.
+
+  Methods
+   encode
      $RETURN_STRING = $obj->encode($STRING);
      OR
      @RETURN_LIST = $obj->encode(@LIST);
@@ -43,7 +57,7 @@ DESCRIPTION
 
     Returns undef on an empty/undefined/whitespace only string.
 
-  compare
+   compare
      $RETURN_CODE = $obj->compare($STRING1,$STRING2);
 
     The return code is an integer between 100 and 0 indicating the
@@ -57,7 +71,8 @@ DESCRIPTION
 SUBLCASSING
     You can easily subclass Text::Phonetic and add your own phonetic
     algorithm. All subclasses must use Text::Phonetic as their base class,
-    and the following methods need to be implemented:
+    reside in the Text::Phonetic namespace, and implement the following
+    methods:
 
   _do_encode
      $RESULT = $obj->_do_encode($STRING);
@@ -74,8 +89,7 @@ SUBLCASSING
     0 (see "compare").
 
   Object structure
-    The object is a simple Hash reference containing all parameters passed
-    during construction.
+    Text::Phonetic uses Moose to declare attributes.
 
   Helper class methods
     _is_inlist
@@ -91,6 +105,29 @@ SUBLCASSING
 
       Compares the two arrays and returns true if at least one element is
       equal (ignoring the position) in both lists.
+
+  Example class
+     package Text::Phonetic::MyAlgorithm;
+     use Moose;
+     extends qw(Text::Phonetic);
+ 
+     has someattribute => (
+        is  => 'rw',
+        isa => 'Str',
+     );
+ 
+     __PACKAGE__->meta->make_immutable;
+ 
+     sub _do_encode {
+         my ($self,$string) = @_;
+         # Do something
+         return $phonetic_representation;
+     }
+     1;
+
+SEE ALSO
+    DBIx::Class::PhoneticSearch (Build phonetic indices via DBIx::Class),
+    Text::Phonetic::VideoGame (Phonetic encoding for video game titles)
 
 SUPPORT
     Please report any bugs or feature requests to
