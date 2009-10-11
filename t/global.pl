@@ -1,5 +1,9 @@
 
 use Data::Dumper;
+use Test::More;
+use strict;
+use warnings;
+
 sub test_encode {
 	my $object = shift;
 	my $string = shift;
@@ -27,6 +31,23 @@ sub test_encode {
 		my $name = ref($object).': '.$expect.' for '.$string;
 		is($result,$expect,$name);
 	}
+}
+
+sub run_conditional {
+    my ($predicate_class,$test_number) = @_;
+    
+    return 1
+        unless $predicate_class;
+    
+    SKIP :{
+        my $ok = eval {
+            Class::MOP::load_class($predicate_class);
+            return 1;
+        };
+        unless ($ok) {
+            skip "Not testing: $predicate_class is not installed",$test_number;
+        }
+    }
 }
 
 1;
