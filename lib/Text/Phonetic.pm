@@ -246,6 +246,14 @@ given strings match. 0 means that the used alogorithm couldn't match the two
 strings at all.
 C<compare> is a shortcut to the C<$obj-&gt;_do_compare($CODE1,$CODE2)> method.
 
+=head2 Class Methods
+
+=head3 available_algorithms 
+
+ my @available = Text::Phonetic->available_algorithms;
+
+Returns a list of all available/installed algorithms
+
 =head1 SUBLCASSING
 
 You can easily subclass Text::Phonetic and add your own phonetic algorithm.
