@@ -5,6 +5,8 @@ inc/Module/Install/Can.pm
 inc/Module/Install/Fetch.pm
 inc/Module/Install/Makefile.pm
 inc/Module/Install/Metadata.pm
+inc/Module/Install/ReadmeFromPod.pm
+inc/Module/Install/ReadmeMarkdownFromPod.pm
 inc/Module/Install/Win32.pm
 inc/Module/Install/WriteAll.pm
 lib/Text/Phonetic.pm
@@ -15,15 +17,15 @@ lib/Text/Phonetic/Metaphone.pm
 lib/Text/Phonetic/Phonem.pm
 lib/Text/Phonetic/Phonix.pm
 lib/Text/Phonetic/Soundex.pm
-lib/Text/Phonetic/SoundexNara.pm
 LICENSE
 Makefile.PL
-MANIFEST
+MANIFEST			This list of files
 META.yml
 README
+README.mkdn
 t/001_load.t
-t/002_pod.t
-t/003_podcoverage.t
+t/002_general.t
+t/003_interface.t
 t/004_wrapper.t
 t/005_koeln.t
 t/006_daitchmokotoff.t
@@ -32,3 +34,7 @@ t/008_phonem.t
 t/009_empty.t
 t/global.pl
 Todo
+xt/perlcritic.t
+xt/pod.t
+xt/podcoverage.t
+xt/podstyle.t
