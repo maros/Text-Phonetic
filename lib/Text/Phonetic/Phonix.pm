@@ -1,20 +1,19 @@
-# ================================================================
+# ============================================================================
 package Text::Phonetic::Phonix;
-# ================================================================
+# ============================================================================
 use strict;
 use warnings;
 use utf8;
 
-use base qw(Text::Phonetic);
+use parent qw(Text::Phonetic);
 
-use vars qw($VERSION @RULES $VOVEL $VOVEL_WITHY $CONSONANT @VALUES);
-$VERSION = $Text::Phonetic::VERSION;
+our $VERSION = $Text::Phonetic::VERSION;
 
-$VOVEL = '[AEIOU]';
-$VOVEL_WITHY = '[AEIOUY]';
-$CONSONANT = '[BCDFGHJLMNPQRSTVXZXY]';
+our $VOVEL = '[AEIOU]';
+our $VOVEL_WITHY = '[AEIOUY]';
+our $CONSONANT = '[BCDFGHJLMNPQRSTVXZXY]';
 
-@VALUES = (
+our @VALUES = (
     [qr/[AEIOUHWY]/,0],
 	[qr/[BP]/,1],
 	[qr/[CGJKQ]/,2],
@@ -26,7 +25,7 @@ $CONSONANT = '[BCDFGHJLMNPQRSTVXZXY]';
 	[qr/[SXZ]/,8],
 );
 
-@RULES = (
+our @RULES = (
 	[qr/DG/,'G'],
 	[qr/C([OAU])/,'K1'],
 	[qr/C[YI]/,'SI'],
@@ -108,10 +107,7 @@ $CONSONANT = '[BCDFGHJLMNPQRSTVXZXY]';
 
 );
 
-## ----------------------------------------------------------------
-#sub _do_compare
-## ----------------------------------------------------------------
-#{
+#sub _do_compare {
 #	my $obj = shift;
 #	my $result1 = shift;
 #	my $result2 = shift;
@@ -158,14 +154,10 @@ $CONSONANT = '[BCDFGHJLMNPQRSTVXZXY]';
 #
 #=back
 
-# -------------------------------------------------------------
-sub _do_encode
-# -------------------------------------------------------------
-{
-	my $obj = shift;
-	my $string = shift;
+sub _do_encode {
+	my ($self,$string) = @_;
 	
-	my ($original_string, $last_string, $first_char);
+	my ($original_string, $first_char);
 	$original_string = $string;
 	
 	# To uppercase and remove other characters
@@ -215,10 +207,7 @@ sub _do_encode
 	return $string;
 }
 
-# -------------------------------------------------------------
-sub _transform
-# -------------------------------------------------------------
-{
+sub _transform {
 	my $string = shift;
 	return unless defined $string;
 	
@@ -234,10 +223,7 @@ sub _transform
 	return $string;
 }
 
-# -------------------------------------------------------------
-sub _replace
-# -------------------------------------------------------------
-{
+sub _replace {
 	my $replace = shift;
 	my $pos1 = shift;
 	my $pos2 = shift;

@@ -1,40 +1,30 @@
-# ================================================================
+# ============================================================================
 package Text::Phonetic::DoubleMetaphone;
-# ================================================================
+# ============================================================================
 use strict;
 use warnings;
 use utf8;
 
-use base qw(Text::Phonetic);
+use parent qw(Text::Phonetic);
 
 use Text::DoubleMetaphone qw( double_metaphone );
 
-use vars qw($VERSION);
-$VERSION = $Text::Phonetic::VERSION;
+our $VERSION = $Text::Phonetic::VERSION;
 
-# ----------------------------------------------------------------
-sub _do_compare
-# ----------------------------------------------------------------
-{
-	my $obj = shift;
-	my $result1 = shift;
-	my $result2 = shift;
+sub _do_compare {
+    my ($self,$result1,$result2) = @_;
 
-	return 50 
-	   if Text::Phonetic::_compare_list($result1,$result2);	
+    return 50 
+       if Text::Phonetic::_compare_list($result1,$result2);	
 
-	return 0;
+    return 0;
 }
 
-# -------------------------------------------------------------
-sub _do_encode
-# -------------------------------------------------------------
-{
-	my $obj = shift;
-	my $string = shift;
-	
-	 my($code1, $code2) = double_metaphone($string);
-	 return [$code1,$code2];
+sub _do_encode {
+    my ($self,$string) = @_;
+    
+    my($code1, $code2) = double_metaphone($string);
+    return [$code1,$code2];
 }
 
 1;

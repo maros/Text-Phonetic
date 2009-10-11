@@ -1,27 +1,28 @@
-# ================================================================
+# ============================================================================
 package Text::Phonetic::Metaphone;
-# ================================================================
-use strict;
-use warnings;
+# ============================================================================
+use Moose;
 use utf8;
 
-use base qw(Text::Phonetic);
+use Text::Metaphone; 
 
-use Text::Metaphone;
+extends qw(Text::Phonetic);
 
-use vars qw($VERSION);
-$VERSION = $Text::Phonetic::VERSION;
+has 'max_length'=> (
+    is              => 'rw',
+    isa             => 'Int',
+    documentation   => q[Limit the length of the encoded string],
+    default         => 0,
+);
 
-# -------------------------------------------------------------
-sub _do_encode
-# -------------------------------------------------------------
-{
-	my $obj = shift;
-	my $string = shift;
-	
-	$obj->{'max_length'} ||= 0;
-	
-	return Metaphone($string,$obj->{'max_length'});
+__PACKAGE__->meta->make_immutable;
+
+our $VERSION = $Text::Phonetic::VERSION;
+
+sub _do_encode {
+    my ($self,$string) = @_;
+    
+    return Metaphone($string,$self->max_length);
 }
 
 1;

@@ -1,16 +1,15 @@
-# ================================================================
+# ============================================================================
 package Text::Phonetic::Phonem;
-# ================================================================
+# ============================================================================
 use strict;
 use warnings;
 use utf8;
 
-use base qw(Text::Phonetic);
+use parent qw(Text::Phonetic);
 
-use vars qw($VERSION %DOUBLECHARS);
-$VERSION = $Text::Phonetic::VERSION;
+our $VERSION = $Text::Phonetic::VERSION;
 
-%DOUBLECHARS = (
+our %DOUBLECHARS = (
     SC  =>'C', 
     SZ  =>'C', 
     CZ  =>'C', 
@@ -31,16 +30,11 @@ $VERSION = $Text::Phonetic::VERSION;
     OU  =>'§ '
 );
 
-# -------------------------------------------------------------
-sub _do_encode
-# -------------------------------------------------------------
-{
-    my $obj = shift;
-    my $string = shift;
+sub _do_encode {
+    my ($self,$string) = @_;
     
     $string = uc($string);
     $string =~ tr/A-Z//cd;
-
 
     # Iterate over two character substitutions
     foreach my $index (0..((length $string)-2)) {
@@ -71,7 +65,7 @@ Text::Phonetic::Phonem - Phonem algorithm
 
 =head1 DESCRIPTION
 
-The PHONEM algorithm is a simple substitution that was originally 
+The PHONEM algorithm is a simple substitution algorithm that was originally 
 implemented in dBase.
 
 Implementation of the PHONEM substitutions, as described in Georg Wilde and 
@@ -109,8 +103,5 @@ LICENSE file included with this module.
 
 
 =cut
-
-
-
 
 1;
