@@ -68,6 +68,12 @@ DESCRIPTION
     alogorithm couldn't match the two strings at all. "compare" is a
     shortcut to the "$obj-&gt;_do_compare($CODE1,$CODE2)" method.
 
+  Class Methods
+   available_algorithms
+     my @available = Text::Phonetic->available_algorithms;
+
+    Returns a list of all available/installed algorithms
+
 SUBLCASSING
     You can easily subclass Text::Phonetic and add your own phonetic
     algorithm. All subclasses must use Text::Phonetic as their base class,
