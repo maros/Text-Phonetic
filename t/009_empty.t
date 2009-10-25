@@ -29,10 +29,10 @@ while (my ($algorithm,$predicate) = each %algorithms) {
         my $encoded1 = $object->encode('');
         my $encoded2 = $object->encode('       ');
         my $encoded3 = $object->encode(undef);
-        is($encoded1,undef);
-        is($encoded2,undef);
-        is($encoded3,undef);
-        is($object->compare('\t','   '),0);
+        is($encoded1,undef,'Empty string for '.$algorithm);
+        is($encoded2,undef,'Whitespace for '.$algorithm);
+        is($encoded3,undef,'Undef for '.$algorithm);
+        is($object->compare('\t','   '),0,'Compare for '.$algorithm);
     }
 
 }

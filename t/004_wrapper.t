@@ -3,7 +3,7 @@
 # t/004_wrapper.t - check wrapped modules
 
 use utf8;
-use Test::More tests=>32+1;
+use Test::More tests=>33+1;
 use Test::NoWarnings;
 use Class::MOP;
 
@@ -25,18 +25,18 @@ if (run_conditional('Text::Soundex','18')) {
     test_encode($soundex,"Lukasiewicz","L222");
     test_encode($soundex,"Ashcraft","A226");
     
-    is($soundex->compare('Alexander','Alieksandr'),50);
-    is($soundex->compare('Alexander','Barbara'),0);
-    is($soundex->compare('Alexander','Alexander'),100);
-    is($soundex->compare('Alexander','Alexandér'),99);
+    is($soundex->compare('Alexander','Alieksandr'),50,'Compare soundex');
+    is($soundex->compare('Alexander','Barbara'),0,'Compare soundex');
+    is($soundex->compare('Alexander','Alexander'),100,'Compare soundex');
+    is($soundex->compare('Alexander','Alexandér'),99,'Compare soundex');
     
     # Multi tests
     my @rlist = $soundex->encode('Alexander','Alieksandr','Euler');
     my $rlist = $soundex->encode('Alexander','Alieksandr','Euler');
-    is(scalar(@rlist),3);
-    is(scalar(@$rlist),3);
-    is($rlist[2],'E460');
-    is($rlist->[2],'E460');
+    is(scalar(@rlist),3,'Soundex list');
+    is(scalar(@$rlist),3,'Soundex list');
+    is($rlist[2],'E460','Soundex list');
+    is($rlist->[2],'E460','Soundex list');
     
     my $soundexnara = Text::Phonetic->load(
         algorithm   => 'Soundex',
@@ -68,6 +68,8 @@ if (run_conditional('Text::Metaphone','7')) {
     isa_ok($metaphone_length,'Text::Phonetic::Metaphone');
     test_encode($metaphone_length,"recrudescence","RKRT");
     test_encode($metaphone_length,"Gutenberg","KTNB");
+
+    is($metaphone->compare('Gutenberg','Gutnbaerg'),50,'Compare Metaphone');
 }
 
 if (run_conditional('Text::DoubleMetaphone','5')) {
@@ -75,10 +77,10 @@ if (run_conditional('Text::DoubleMetaphone','5')) {
         algorithm   => 'DoubleMetaphone'
     );
     isa_ok($doublemetaphone,'Text::Phonetic::DoubleMetaphone');
-    is($doublemetaphone->compare('Alexander','Alieksandr'),50);
-    is($doublemetaphone->compare('Alexander','Barbara'),0);
-    is($doublemetaphone->compare('Alexander','Alexander'),100);
-    is($doublemetaphone->compare('Alexander','Alexandér'),99);
+    is($doublemetaphone->compare('Alexander','Alieksandr'),50,'Compare DoubleMetaphone');
+    is($doublemetaphone->compare('Alexander','Barbara'),0,'Compare DoubleMetaphone');
+    is($doublemetaphone->compare('Alexander','Alexander'),100,'Compare DoubleMetaphone');
+    is($doublemetaphone->compare('Alexander','Alexandér'),99,'Compare DoubleMetaphone');
 }
 
 

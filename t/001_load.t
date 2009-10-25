@@ -2,7 +2,7 @@
 
 # t/001_load.t - check module loading
 
-use Test::More tests => 9+1;
+use Test::More tests => 8+1;
 use Test::NoWarnings;
 
 use Class::MOP;
@@ -16,7 +16,7 @@ use_ok( 'Text::Phonetic::Phonem' );
 load_conditional('Text::Phonetic::Metaphone','Text::Metaphone');
 load_conditional('Text::Phonetic::DoubleMetaphone','Text::DoubleMetaphone');
 load_conditional('Text::Phonetic::Soundex','Text::Soundex');
-load_conditional('Text::Phonetic::MultiPhone','Text::MultiPhone');
+#load_conditional('Text::Phonetic::MultiPhone','Text::MultiPhone');
 
 sub load_conditional {
     my ($test_class,$predicate_class) = @_;
