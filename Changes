@@ -1,7 +1,10 @@
 Revision history for Perl module Text::Phonetic
 
+2.01 Mon Oct 26 2009
+    - Use Moose' extend instead of parent
+
 2.00 Sun Oct 25 2009
-    - Use Moose; 
+    - Use Moose
     - Implement new constructor
     - Add optional attributes to soundex algorithm
     - Remove soundexnara algorithm (now in Soundex)
