@@ -1,12 +1,12 @@
 # ============================================================================
 package Text::Phonetic::Soundex;
 # ============================================================================
-use Moose;
 use utf8;
 
-use Text::Soundex qw( soundex soundex_nara );
-
+use Moose;
 extends qw(Text::Phonetic);
+
+use Text::Soundex qw( soundex soundex_nara );
 
 has 'nara'=> (
     is              => 'rw',
@@ -28,8 +28,6 @@ our $VERSION = $Text::Phonetic::VERSION;
 
 sub _do_encode {
     my ($self,$string) = @_;
-    
-    #local $Text::Soundex::nocode;
     
     if ($self->has_nocode) {
         $Text::Soundex::nocode = $self->nocode;

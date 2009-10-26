@@ -1,12 +1,12 @@
 # ============================================================================
 package Text::Phonetic::Metaphone;
 # ============================================================================
-use Moose;
 use utf8;
 
-use Text::Metaphone; 
-
+use Moose;
 extends qw(Text::Phonetic);
+
+use Text::Metaphone;
 
 has 'max_length'=> (
     is              => 'rw',

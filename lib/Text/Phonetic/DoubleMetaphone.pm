@@ -1,11 +1,12 @@
 # ============================================================================
 package Text::Phonetic::DoubleMetaphone;
 # ============================================================================
-use strict;
-use warnings;
 use utf8;
 
-use parent qw(Text::Phonetic);
+use Moose;
+extends qw(Text::Phonetic);
+
+__PACKAGE__->meta->make_immutable;
 
 use Text::DoubleMetaphone qw( double_metaphone );
 
