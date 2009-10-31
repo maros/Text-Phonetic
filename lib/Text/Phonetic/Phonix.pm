@@ -16,95 +16,95 @@ our $CONSONANT = '[BCDFGHJLMNPQRSTVXZXY]';
 
 our @VALUES = (
     [qr/[AEIOUHWY]/,0],
-	[qr/[BP]/,1],
-	[qr/[CGJKQ]/,2],
-	[qr/[DT]/,3],
-	[qr/L/,4],
-	[qr/[MN]/,5],
-	[qr/R/,6],
-	[qr/[FV]/,7],
-	[qr/[SXZ]/,8],
+    [qr/[BP]/,1],
+    [qr/[CGJKQ]/,2],
+    [qr/[DT]/,3],
+    [qr/L/,4],
+    [qr/[MN]/,5],
+    [qr/R/,6],
+    [qr/[FV]/,7],
+    [qr/[SXZ]/,8],
 );
 
 our @RULES = (
-	[qr/DG/,'G'],
-	[qr/C([OAU])/,'K1'],
-	[qr/C[YI]/,'SI'],
-	[qr/CE/,'SE'],
-	[qr/^CL($VOVEL)/,'KL1'],
-	[qr/CK/,'K'],
-	[qr/[GJ]C$/,'K'],
-	[qr/^CH?R($VOVEL)/,'KR1'],
-	[qr/^WR/,'R'],
-	[qr/NC/,'NK'],
-	[qr/CT/,'KT'],
-	[qr/PH/,'F'],
-	[qr/AA/,'AR'], #neu
-	[qr/SCH/,'SH'],
-	[qr/BTL/,'TL'],
-	[qr/GHT/,'T'],
-	[qr/AUGH/,'ARF'],
-	[qr/(\w)LJ($VOVEL)/,'1LD2'],
-	[qr/LOUGH/,'LOW'],
-	[qr/^Q/,'KW'],
-	[qr/^KN/,'N'],
-	[qr/GN$/,'N'],
-	[qr/GHN/,'N'],
-	[qr/GNE$/,'N'],
-	[qr/GHNE/,'NE'],
-	[qr/GNES$/,'NS'],
-	[qr/^GN/,'N'],
-	[qr/(\w)GN($CONSONANT)/,'1N2'],
-	[qr/^PS/,'S'],
-	[qr/^PT/,'T'],
-	[qr/^CZ/,'C'],
-	[qr/($VOVEL)WZ(\w)/,'1Z2'],
-	[qr/(\w)CZ(\w)/,'1CH2'],
-	[qr/LZ/,'LSH'],
-	[qr/RZ/,'RSH'],
-	[qr/(\w)Z($VOVEL)/,'1S2'],
-	[qr/ZZ/,'TS'],
-	[qr/($CONSONANT)Z(\w)/,'1TS2'],
-	[qr/HROUGH/,'REW'],
-	[qr/OUGH/,'OF'],
-	[qr/($VOVEL)Q($VOVEL)/,'1KW2'],
-	[qr/($VOVEL)J($VOVEL)/,'1Y2'],
-	[qr/^YJ($VOVEL)/,'Y1'],
-	[qr/^GH/,'G'],
-	[qr/($VOVEL)GH$/,'1E'],
-	[qr/^CY/,'S'],
-	[qr/NX/,'NKS'],
-	[qr/^PF/,'F'],
-	[qr/DT$/,'T'],
-	[qr/(T|D)L$/,'1IL'],
-	[qr/YTH/,'ITH'],
-	[qr/^TS?J($VOVEL)/,'CH1'],
-	[qr/^TS($VOVEL)/,'T1'],
-	[qr/TCH/,'CH'], # old che
-	[qr/^($VOVEL)WSK/,'1VSIKE'],
-	[qr/^[PM]N($VOVEL)/,'N1'],
-	[qr/($VOVEL)STL/,'1SL'],
-	[qr/TNT$/,'ENT'],
-	[qr/EAUX$/,'OH'],
-	[qr/EXCI/,'ECS'],
-	[qr/X/,'ECS'],
-	[qr/NED$/,'ND'],
-	[qr/JR/,'DR'],
-	[qr/EE$/,'EA'],
-	[qr/ZS/,'S'],
-	[qr/($VOVEL)H?R($CONSONANT)/,'1AH2'],
-	[qr/($VOVEL)HR$/,'1AH'],
-	[qr/RE$/,'AR'],
-	[qr/($VOVEL)R$/,'1AH'],
-	[qr/LLE/,'LE'],
-	[qr/($CONSONANT)LE(S?)$/,'1ILE2'],
-	[qr/E$/,''],
-	[qr/ES$/,'S'],
-	[qr/($VOVEL)SS/,'1AS'],
-	[qr/($VOVEL)MB$/,'1M'],
-	[qr/MPTS/,'MPS'],
-	[qr/MPS/,'MS'],
-	[qr/MPT/,'MT'],
+    [qr/DG/,'G'],
+    [qr/C([OAU])/,'K1'],
+    [qr/C[YI]/,'SI'],
+    [qr/CE/,'SE'],
+    [qr/^CL($VOVEL)/,'KL1'],
+    [qr/CK/,'K'],
+    [qr/[GJ]C$/,'K'],
+    [qr/^CH?R($VOVEL)/,'KR1'],
+    [qr/^WR/,'R'],
+    [qr/NC/,'NK'],
+    [qr/CT/,'KT'],
+    [qr/PH/,'F'],
+    [qr/AA/,'AR'], #neu
+    [qr/SCH/,'SH'],
+    [qr/BTL/,'TL'],
+    [qr/GHT/,'T'],
+    [qr/AUGH/,'ARF'],
+    [qr/(\w)LJ($VOVEL)/,'1LD2'],
+    [qr/LOUGH/,'LOW'],
+    [qr/^Q/,'KW'],
+    [qr/^KN/,'N'],
+    [qr/GN$/,'N'],
+    [qr/GHN/,'N'],
+    [qr/GNE$/,'N'],
+    [qr/GHNE/,'NE'],
+    [qr/GNES$/,'NS'],
+    [qr/^GN/,'N'],
+    [qr/(\w)GN($CONSONANT)/,'1N2'],
+    [qr/^PS/,'S'],
+    [qr/^PT/,'T'],
+    [qr/^CZ/,'C'],
+    [qr/($VOVEL)WZ(\w)/,'1Z2'],
+    [qr/(\w)CZ(\w)/,'1CH2'],
+    [qr/LZ/,'LSH'],
+    [qr/RZ/,'RSH'],
+    [qr/(\w)Z($VOVEL)/,'1S2'],
+    [qr/ZZ/,'TS'],
+    [qr/($CONSONANT)Z(\w)/,'1TS2'],
+    [qr/HROUGH/,'REW'],
+    [qr/OUGH/,'OF'],
+    [qr/($VOVEL)Q($VOVEL)/,'1KW2'],
+    [qr/($VOVEL)J($VOVEL)/,'1Y2'],
+    [qr/^YJ($VOVEL)/,'Y1'],
+    [qr/^GH/,'G'],
+    [qr/($VOVEL)GH$/,'1E'],
+    [qr/^CY/,'S'],
+    [qr/NX/,'NKS'],
+    [qr/^PF/,'F'],
+    [qr/DT$/,'T'],
+    [qr/(T|D)L$/,'1IL'],
+    [qr/YTH/,'ITH'],
+    [qr/^TS?J($VOVEL)/,'CH1'],
+    [qr/^TS($VOVEL)/,'T1'],
+    [qr/TCH/,'CH'], # old che
+    [qr/^($VOVEL)WSK/,'1VSIKE'],
+    [qr/^[PM]N($VOVEL)/,'N1'],
+    [qr/($VOVEL)STL/,'1SL'],
+    [qr/TNT$/,'ENT'],
+    [qr/EAUX$/,'OH'],
+    [qr/EXCI/,'ECS'],
+    [qr/X/,'ECS'],
+    [qr/NED$/,'ND'],
+    [qr/JR/,'DR'],
+    [qr/EE$/,'EA'],
+    [qr/ZS/,'S'],
+    [qr/($VOVEL)H?R($CONSONANT)/,'1AH2'],
+    [qr/($VOVEL)HR$/,'1AH'],
+    [qr/RE$/,'AR'],
+    [qr/($VOVEL)R$/,'1AH'],
+    [qr/LLE/,'LE'],
+    [qr/($CONSONANT)LE(S?)$/,'1ILE2'],
+    [qr/E$/,''],
+    [qr/ES$/,'S'],
+    [qr/($VOVEL)SS/,'1AS'],
+    [qr/($VOVEL)MB$/,'1M'],
+    [qr/MPTS/,'MPS'],
+    [qr/MPS/,'MS'],
+    [qr/MPT/,'MT'],
 
 );
 
@@ -156,83 +156,83 @@ our @RULES = (
 #=back
 
 sub _do_encode {
-	my ($self,$string) = @_;
-	
-	my ($original_string, $first_char);
-	$original_string = $string;
-	
-	# To uppercase and remove other characters
-	$string = uc($string);
-	$string =~ tr/A-Z//cd;
-	
-	# RULE 1: Replcace rule
-	foreach my $rule (@RULES) {
-		my $regexp = $rule->[0];
-		my $replace = $rule->[1];
-		$string =~ s/$regexp/_replace($replace,$1,$2)/ge;
-	}
-	
+    my ($self,$string) = @_;
+    
+    my ($original_string, $first_char);
+    $original_string = $string;
+    
+    # To uppercase and remove other characters
+    $string = uc($string);
+    $string =~ tr/A-Z//cd;
+    
+    # RULE 1: Replcace rule
+    foreach my $rule (@RULES) {
+        my $regexp = $rule->[0];
+        my $replace = $rule->[1];
+        $string =~ s/$regexp/_replace($replace,$1,$2)/ge;
+    }
+    
     # RULE 2: Fetch first character
-	$first_char = substr($string,0,1,'');
-	
-	# RULE 3: Exceptions for first character rule
-	if (grep { $first_char eq $_ } qw(A E I O U Y)) {
-	    $first_char = 'v';
-	    $string =~ s/^$VOVEL_WITHY//;
-	} elsif ($first_char eq 'W' || $first_char eq 'H') {
-	    #$string =~ s/^[WH]//;
-	}
-	
-	# RULE 4
-	$string =~ s/ES$/S/;
-	# RULE 5
-	$string =~ s/($VOVEL_WITHY)$/$1E/;
-	# RULE 6
-	#$string =~ s/\w$//; # This rule seems kind of strict
-	# RULE 7-8
-#	if ($string =~ s/($VOVEL_WITHY)([A-Z]+)$/$2/) {
-#	    # RULE 13
-#	    $last_string = _transform($2);
-#	}
-	
-	# RULE 9-11
+    $first_char = substr($string,0,1,'');
+    
+    # RULE 3: Exceptions for first character rule
+    if (grep { $first_char eq $_ } qw(A E I O U Y)) {
+        $first_char = 'v';
+        $string =~ s/^$VOVEL_WITHY//;
+    } elsif ($first_char eq 'W' || $first_char eq 'H') {
+        #$string =~ s/^[WH]//;
+    }
+    
+    # RULE 4
+    $string =~ s/ES$/S/;
+    # RULE 5
+    $string =~ s/($VOVEL_WITHY)$/$1E/;
+    # RULE 6
+    #$string =~ s/\w$//; # This rule seems kind of strict
+    # RULE 7-8
+#   if ($string =~ s/($VOVEL_WITHY)([A-Z]+)$/$2/) {
+#       # RULE 13
+#       $last_string = _transform($2);
+#   }
+    
+    # RULE 9-11
     $string = _transform($string);
-
-	# RULE 12
-	$string = $first_char.$string;
-	
-	#$string .= $last_string if (defined $last_string);
-	$string .= '0'  x (8-length $string);
-	$string = substr($string,0,8);
-	
-	return $string;
+    
+    # RULE 12
+    $string = $first_char.$string;
+    
+    #$string .= $last_string if (defined $last_string);
+    $string .= '0'  x (8-length $string);
+    $string = substr($string,0,8);
+    
+    return $string;
 }
 
 sub _transform {
-	my $string = shift;
-	return unless defined $string;
-	
-	# RULE 9
-	$string =~ s/([AEIOUYHW])//g;
-	# RULE 10
-	$string =~ s/($CONSONANT+)\1/$1/g;
-	# RULE 11
-	foreach my $value (@VALUES) {
-		my $regexp = $value->[0];
-		$string =~ s/$regexp/$value->[1]/g;
-	}
-	return $string;
+    my $string = shift;
+    return unless defined $string;
+    
+    # RULE 9
+    $string =~ s/([AEIOUYHW])//g;
+    # RULE 10
+    $string =~ s/($CONSONANT+)\1/$1/g;
+    # RULE 11
+    foreach my $value (@VALUES) {
+        my $regexp = $value->[0];
+        $string =~ s/$regexp/$value->[1]/g;
+    }
+    return $string;
 }
 
 sub _replace {
-	my $replace = shift;
-	my $pos1 = shift;
-	my $pos2 = shift;
-	
-	$replace =~ s/1/$pos1/ if (defined $pos1);
-	$replace =~ s/2/$pos2/ if (defined $pos2);
-
-	return $replace;
+    my $replace = shift;
+    my $pos1 = shift;
+    my $pos2 = shift;
+    
+    $replace =~ s/1/$pos1/ if (defined $pos1);
+    $replace =~ s/2/$pos2/ if (defined $pos2);
+    
+    return $replace;
 }
 
 1;

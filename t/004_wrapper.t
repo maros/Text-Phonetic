@@ -11,7 +11,7 @@ use_ok('Text::Phonetic');
 
 require "t/global.pl";
 
-if (run_conditional('Text::Soundex','18')) {
+if (run_conditional('Text::Soundex','19')) {
     my $soundex = Text::Phonetic->load(
         algorithm   => 'Soundex',
     );
@@ -52,7 +52,7 @@ if (run_conditional('Text::Soundex','18')) {
     test_encode($soundexnocode,"_","Z0000");
 }
 
-if (run_conditional('Text::Metaphone','7')) {
+if (run_conditional('Text::Metaphone','8')) {
     my $metaphone = Text::Phonetic->load(
         algorithm   => 'Metaphone'
     );
