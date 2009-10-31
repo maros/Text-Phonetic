@@ -1,5 +1,8 @@
 Revision history for Perl module Text::Phonetic
 
+2.02 Sat Oct 30 2009
+    - Fix failing tests
+
 2.01 Mon Oct 26 2009
     - Use Moose' extend instead of parent
 
