@@ -26,6 +26,11 @@ has 'unidecode' => (
     documentation   => q[Transliterate strings to ASCII before processing]
 );
 
+after 'BUILDARGS' => sub { 
+    my ($class) = @_;
+    $class->check_predicates;
+};
+
 __PACKAGE__->meta->make_immutable;
 
 # ----------------------------------------------------------------------------
@@ -40,6 +45,22 @@ sub register_algorithm {
     push @AVAILABLE_ALGORITHMS,$algorithm
         unless grep { $algorithm eq $_ } @AVAILABLE_ALGORITHMS;
     return $algorithm;
+}
+
+sub check_predicates {
+    my ($class) = @_;
+    
+    if ($class->can('_predicates')) {
+        my @predicates = $class->_predicates;
+        foreach my $predicate (@predicates) {
+            my $ok = eval {
+                Class::MOP::load_class($predicate);
+            };
+            if (! $ok || $@) {
+                croak("Could not load '$class' phonetic algorithm: Predicate '$predicate' is missing")
+            }
+        }
+    }
 }
 
 # ----------------------------------------------------------------------------
@@ -60,11 +81,13 @@ sub load {
         my $ok = eval {
             Class::MOP::load_class($class);
         };
-        unless ($ok) {
+        if (! $ok || $@) {
             my $error = $@ || 'Unknown error while loading '.$class;
             croak("Could not load '$algorithm' phonetic algorithm: $error")
         }
     }
+    
+    $class->check_predicates;
     
     return $class->new($params);
 }
