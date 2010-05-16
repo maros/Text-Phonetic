@@ -2,7 +2,7 @@
 
 # t/008_phonem.t - phonem test 
 
-use Test::More tests=>17+1;
+use Test::Most tests=>17+1;
 use Test::NoWarnings;
 use utf8;
 

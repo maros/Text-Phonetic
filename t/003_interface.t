@@ -2,7 +2,7 @@
 
 # t/002_load.t - check interface
 
-use Test::More tests => 16+1;
+use Test::Most tests => 16+1;
 use Test::NoWarnings;
 
 use_ok( 'Text::Phonetic' );

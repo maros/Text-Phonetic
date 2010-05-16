@@ -2,7 +2,7 @@
 
 # t/005_koeln.t - Test koelner phonetik 
 
-use Test::More tests=>17+1;
+use Test::Most tests=>17+1;
 use Test::NoWarnings;
 use utf8;
 

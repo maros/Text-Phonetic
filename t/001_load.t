@@ -2,10 +2,10 @@
 
 # t/001_load.t - check module loading
 
-use Test::More tests => 8+1;
+use Test::Most tests => 8+1;
 use Test::NoWarnings;
 
-use Class::MOP;
+require "t/global.pl";
 
 use_ok( 'Text::Phonetic' );
 use_ok( 'Text::Phonetic::Koeln' );

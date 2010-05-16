@@ -2,10 +2,8 @@
 
 # t/002_load.t - some general checks
 
-use Test::More tests => 8+1;
+use Test::Most tests => 8+1;
 use Test::NoWarnings;
-
-use Class::MOP;
 
 use_ok( 'Text::Phonetic' );
 

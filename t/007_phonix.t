@@ -2,7 +2,7 @@
 
 # t/007_phonix.t - phonix test 
 
-use Test::More tests=>25+1;
+use Test::Most tests=>25+1;
 use Test::NoWarnings;
 use utf8;
 

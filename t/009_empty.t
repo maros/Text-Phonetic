@@ -2,7 +2,7 @@
 
 # t/009_empty.t - empty string test 
 
-use Test::More tests=>(7*4)+1;
+use Test::Most tests=>(7*4)+1;
 use Test::NoWarnings;
 use utf8;
 

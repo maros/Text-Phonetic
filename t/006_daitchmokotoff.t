@@ -2,7 +2,7 @@
 
 # t/006_daitchmokotoff.t - daitchmokotoff test 
 
-use Test::More tests=>27+1;
+use Test::Most tests=>27+1;
 use Test::NoWarnings;
 use utf8;
 

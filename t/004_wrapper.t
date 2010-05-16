@@ -3,9 +3,8 @@
 # t/004_wrapper.t - check wrapped modules
 
 use utf8;
-use Test::More tests=>33+1;
+use Test::Most tests=>33+1;
 use Test::NoWarnings;
-use Class::MOP;
 
 use_ok('Text::Phonetic');
 
