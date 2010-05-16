@@ -6,8 +6,6 @@ use utf8;
 use Moose;
 extends qw(Text::Phonetic);
 
-use Text::Metaphone;
-
 has 'max_length'=> (
     is              => 'rw',
     isa             => 'Int',
@@ -19,10 +17,14 @@ __PACKAGE__->meta->make_immutable;
 
 our $VERSION = $Text::Phonetic::VERSION;
 
+sub _predicates {
+    return 'Text::Metaphone';
+}
+
 sub _do_encode {
     my ($self,$string) = @_;
     
-    return Metaphone($string,$self->max_length);
+    return Text::Metaphone::Metaphone($string,$self->max_length);
 }
 
 1;

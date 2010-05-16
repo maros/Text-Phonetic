@@ -8,9 +8,11 @@ extends qw(Text::Phonetic);
 
 __PACKAGE__->meta->make_immutable;
 
-use Text::DoubleMetaphone qw( double_metaphone );
-
 our $VERSION = $Text::Phonetic::VERSION;
+
+sub _predicates {
+    return 'Text::DoubleMetaphone';
+}
 
 sub _do_compare {
     my ($self,$result1,$result2) = @_;
@@ -24,7 +26,7 @@ sub _do_compare {
 sub _do_encode {
     my ($self,$string) = @_;
     
-    my($code1, $code2) = double_metaphone($string);
+    my($code1, $code2) = Text::DoubleMetaphone::double_metaphone($string);
     return [$code1,$code2];
 }
 

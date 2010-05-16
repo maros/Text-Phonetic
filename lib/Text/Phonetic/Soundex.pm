@@ -6,8 +6,6 @@ use utf8;
 use Moose;
 extends qw(Text::Phonetic);
 
-use Text::Soundex qw( soundex soundex_nara );
-
 has 'nara'=> (
     is              => 'rw',
     isa             => 'Bool',
@@ -26,6 +24,10 @@ __PACKAGE__->meta->make_immutable;
 
 our $VERSION = $Text::Phonetic::VERSION;
 
+sub _predicates {
+    return 'Text::Soundex';
+}
+
 sub _do_encode {
     my ($self,$string) = @_;
     
@@ -34,9 +36,9 @@ sub _do_encode {
     }
     
     if ($self->nara) {
-        return soundex_nara($string);
+        return Text::Soundex::soundex_nara($string);
     } else {
-        return soundex($string);
+        return Text::Soundex::soundex($string);
     }
 }
 
