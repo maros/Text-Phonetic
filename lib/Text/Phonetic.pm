@@ -4,7 +4,7 @@ package Text::Phonetic;
 use Moose;
 use utf8;
 
-use Text::Unidecode;
+use Text::Unidecode qw();
 use Carp;
 use Module::Find;
 
