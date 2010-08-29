@@ -94,6 +94,12 @@ SUBLCASSING
     as returned by "_do_encode" and returns an integer value between 98 and
     0 (see "compare").
 
+  _predicates
+    Third party modules can be marked as predicates by adding the
+    "_predicates" method whick should return al list of package names. All
+    predicates will be loaded if installed. If missing an exception will be
+    thrown.
+
   Object structure
     Text::Phonetic uses Moose to declare attributes.
 

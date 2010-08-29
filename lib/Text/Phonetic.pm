@@ -10,7 +10,7 @@ use Module::Find;
 
 use version;
 our $AUTHORITY = 'cpan:MAROS';
-our $VERSION = version->new("2.02");
+our $VERSION = version->new("2.03");
 
 use 5.008000;
 
@@ -298,6 +298,12 @@ If your C<_do_encode> method doesn't return a single scalar value you also
 might need to implement a comparison method. It takes two results as returned
 by C<_do_encode> and returns an integer value between 98 and 0 
 (see L<"compare">).
+
+=head2 _predicates
+
+Third party modules can be marked as predicates by adding the C<_predicates>
+method whick should return al list of package names. All predicates will be
+loaded if installed. If missing an exception will be thrown.
 
 =head2 Object structure
 

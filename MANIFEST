@@ -34,7 +34,11 @@ t/006_daitchmokotoff.t
 t/007_phonix.t
 t/008_phonem.t
 t/009_empty.t
+t/010_predicate.t
 t/global.pl
+t/lib/Text/Phonetic/Fake.pm
+t/lib/Text/Phonetic/Real.pm
+t/lib/Text/SomePhoneticAlgorithm.pm
 Todo
 xt/perlcritic.t
 xt/pod.t

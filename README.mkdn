@@ -22,10 +22,10 @@ Or
 
 This module provides an easy and convinient way to encode names with various 
 phonetic algorithms. It acts as a wrapper arround other phonetic algorithm
-modules like [Text::Metaphone](http://search.cpan.org/search?mode=module&query=Text::Metaphone), [Text::DoubleMetaphone](http://search.cpan.org/search?mode=module&query=Text::DoubleMetaphone), [Text::Soundex](http://search.cpan.org/search?mode=module&query=Text::Soundex)
+modules like [Text::Metaphone](http://search.cpan.org/perldoc?Text::Metaphone), [Text::DoubleMetaphone](http://search.cpan.org/perldoc?Text::DoubleMetaphone), [Text::Soundex](http://search.cpan.org/perldoc?Text::Soundex)
 and also implements some other algorithms such as 
-[Text::Phonetic::DaitchMokotoff](http://search.cpan.org/search?mode=module&query=Text::Phonetic::DaitchMokotoff), [Text::Phonetic::Koeln](http://search.cpan.org/search?mode=module&query=Text::Phonetic::Koeln),
-[Text::Phonetic::Phonem](http://search.cpan.org/search?mode=module&query=Text::Phonetic::Phonem) and [Text::Phonetic::Phonix](http://search.cpan.org/search?mode=module&query=Text::Phonetic::Phonix). 
+[Text::Phonetic::DaitchMokotoff](http://search.cpan.org/perldoc?Text::Phonetic::DaitchMokotoff), [Text::Phonetic::Koeln](http://search.cpan.org/perldoc?Text::Phonetic::Koeln),
+[Text::Phonetic::Phonem](http://search.cpan.org/perldoc?Text::Phonetic::Phonem) and [Text::Phonetic::Phonix](http://search.cpan.org/perldoc?Text::Phonetic::Phonix). 
 
 The module can easily be subclassed.
 
@@ -41,7 +41,7 @@ The module can easily be subclassed.
 You can pass arbitrary attributes to the constructor. The only global 
 attribute is `unidecode` which defaults to 1 if not set. This attribute 
 controlls if non-latin characters should be transliterated to A-Z 
-(see also [Text::Unidecode](http://search.cpan.org/search?mode=module&query=Text::Unidecode)).
+(see also [Text::Unidecode](http://search.cpan.org/perldoc?Text::Unidecode)).
 
 Additional attributes may be defined by the various implementation classes.
 
@@ -111,9 +111,15 @@ might need to implement a comparison method. It takes two results as returned
 by `_do_encode` and returns an integer value between 98 and 0 
 (see L<"compare">).
 
+## _predicates
+
+Third party modules can be marked as predicates by adding the `_predicates`
+method whick should return al list of package names. All predicates will be
+loaded if installed. If missing an exception will be thrown.
+
 ## Object structure
 
-Text::Phonetic uses [Moose](http://search.cpan.org/search?mode=module&query=Moose) to declare attributes.
+Text::Phonetic uses [Moose](http://search.cpan.org/perldoc?Moose) to declare attributes.
 
 ## Helper class methods
 
@@ -159,8 +165,8 @@ Compares the two arrays and returns true if at least one element is equal
 
 # SEE ALSO
 
-[DBIx::Class::PhoneticSearch](http://search.cpan.org/search?mode=module&query=DBIx::Class::PhoneticSearch) (Build phonetic indices via DBIx::Class),
-[Text::Phonetic::VideoGame](http://search.cpan.org/search?mode=module&query=Text::Phonetic::VideoGame) (Phonetic encoding for video game titles)
+[DBIx::Class::PhoneticSearch](http://search.cpan.org/perldoc?DBIx::Class::PhoneticSearch) (Build phonetic indices via DBIx::Class),
+[Text::Phonetic::VideoGame](http://search.cpan.org/perldoc?Text::Phonetic::VideoGame) (Phonetic encoding for video game titles)
 
 # SUPPORT
 
