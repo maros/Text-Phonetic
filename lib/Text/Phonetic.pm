@@ -95,14 +95,11 @@ sub load {
     return $class->new($params);
 }
 
-
-
 # ----------------------------------------------------------------------------
 # Public methods
 
 sub encode {
     my $self = shift;
-    
     
     # Single value
     if (scalar(@_) == 1) {
@@ -131,7 +128,7 @@ sub compare {
     return 0 unless defined $string1 && $string1 !~ /^\s*$/;
     return 0 unless defined $string2 && $string2 !~ /^\s*$/;
 
-    # Extremely rare case ;-)    
+    # Extremely rare case ;-)
     return 100 if ($string1 eq $string2);
 
     if ($self->unidecode) {
@@ -222,7 +219,7 @@ and also implements some other algorithms such as
 L<Text::Phonetic::DaitchMokotoff>, L<Text::Phonetic::Koeln>,
 L<Text::Phonetic::Phonem> and L<Text::Phonetic::Phonix>. 
 
-The module can easily be subclassed.
+This module can easily be subclassed.
 
 =head1 DESCRIPTION
 
@@ -305,7 +302,7 @@ by C<_do_encode> and returns an integer value between 98 and 0
 =head2 _predicates
 
 Third party modules can be marked as predicates by adding the C<_predicates>
-method whick should return al list of package names. All predicates will be
+method which should return al list of package names. All predicates will be
 loaded if installed. If missing an exception will be thrown.
 
 =head2 Object structure
@@ -313,17 +310,6 @@ loaded if installed. If missing an exception will be thrown.
 Text::Phonetic uses L<Moose> to declare attributes.
 
 =head2 Helper class methods
-
-=over 2
-
-=item _is_inlist
-
- Text::Phonetic::_is_inlist($STRING,@LIST);
- OR
- Text::Phonetic::_is_inlist($STRING,$LIST_REF);
- 
-Returns a true value if $STRING is in the supplied list. Otherwise returns
-false.
 
 =item _compare_list
 
@@ -345,13 +331,14 @@ Compares the two arrays and returns true if at least one element is equal
     isa => 'Str',
  );
  
- __PACKAGE__->meta->make_immutable;
- 
  sub _do_encode {
      my ($self,$string) = @_;
      # Do something
      return $phonetic_representation;
  }
+ 
+ __PACKAGE__->meta->make_immutable;
+ no Moose;
  1;
 
 =head1 SEE ALSO
@@ -376,7 +363,7 @@ your report as I make changes.
 
 =head1 COPYRIGHT
 
-Text::Phonetic is Copyright (c) 2006,2007 Maroš. Kollár.
+Text::Phonetic is Copyright (c) 2006,2007,2010 Maroš. Kollár.
 
 This program is free software; you can redistribute
 it and/or modify it under the same terms as Perl itself.
