@@ -15,6 +15,7 @@ our $VERSION = version->new("2.03");
 use 5.008000;
 
 our $DEFAULT_ALGORITHM = 'Phonix';
+our @PREDICATES_CHECKED;
 our @AVAILABLE_ALGORITHMS = grep { s/^Text::Phonetic::(.+)$/$1/x } 
     findsubmod Text::Phonetic;
 
@@ -50,7 +51,9 @@ sub register_algorithm {
 sub check_predicates {
     my ($class) = @_;
     
-    if ($class->can('_predicates')) {
+    if ($class->can('_predicates')
+        && ! grep { $class eq $_ } @PREDICATES_CHECKED) {
+        push(@PREDICATES_CHECKED,$class);
         my @predicates = $class->_predicates;
         foreach my $predicate (@predicates) {
             my $ok = eval {
