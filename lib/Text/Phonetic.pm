@@ -53,7 +53,6 @@ sub check_predicates {
     
     if ($class->can('_predicates')
         && ! grep { $class eq $_ } @PREDICATES_CHECKED) {
-        push(@PREDICATES_CHECKED,$class);
         my @predicates = $class->_predicates;
         foreach my $predicate (@predicates) {
             my $ok = eval {
@@ -61,6 +60,8 @@ sub check_predicates {
             };
             if (! $ok || $@) {
                 croak("Could not load '$class' phonetic algorithm: Predicate '$predicate' is missing")
+            } else {
+                push(@PREDICATES_CHECKED,$class);
             }
         }
     }
