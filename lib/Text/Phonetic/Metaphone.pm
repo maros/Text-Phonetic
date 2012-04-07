@@ -43,7 +43,7 @@ Metaphone was developed by Lawrence Philips as a response to deficiencies in
 the Soundex algorithm. It is more accurate than Soundex because it uses a 
 larger set of rules for English pronunciation. (Wikipedia, 2007)
 
-This module is a thin wrapper arround L<Text::Metaphone>.
+This module is a thin wrapper around L<Text::Metaphone>.
 
 The parameter C<max_length> can be set to limit the length of the encoded 
 string.

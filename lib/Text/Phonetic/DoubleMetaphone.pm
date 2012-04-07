@@ -49,7 +49,7 @@ Lawrence Philips and is the second generation of his Metaphone algorithm.
 The Result is always an array ref containing two (mostly, but not always)
 identical elements.
 
-This module is a thin wrapper arround L<Text::DoubleMetaphone>.
+This module is a thin wrapper around L<Text::DoubleMetaphone>.
 
 =head1 AUTHOR
 

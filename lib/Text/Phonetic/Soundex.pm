@@ -66,7 +66,7 @@ algorithm maintained by the National Archives and Records Administration
 If the parameter C<nocode> redefines the value that will be returned if the 
 input string contains no identifiable sounds within it.
 
-This module is a thin wrapper arround L<Text::Soundex>.
+This module is a thin wrapper around L<Text::Soundex>.
 
 =head1 AUTHOR
 

@@ -209,7 +209,7 @@ Or
   $encoded_string = $phonetic->encode($string);
 
 This module provides an easy and convinient way to encode names with various 
-phonetic algorithms. It acts as a wrapper arround other phonetic algorithm
+phonetic algorithms. It acts as a wrapper around other phonetic algorithm
 modules like L<Text::Metaphone>, L<Text::DoubleMetaphone>, L<Text::Soundex>
 and also implements some other algorithms such as 
 L<Text::Phonetic::DaitchMokotoff>, L<Text::Phonetic::Koeln>,
@@ -234,7 +234,7 @@ Additional attributes may be defined by the various implementation classes.
 
 =head3 load
 
- $obj = Text::Phonetic->new(algorithm => $algorithm, %PARAMETERS)
+ $obj = Text::Phonetic->load(algorithm => $algorithm, %PARAMETERS)
 
 Alternative constructor which also loads the requested algorithm subclass.
 
@@ -355,16 +355,17 @@ your report as I make changes.
     Maroš Kollár
     CPAN ID: MAROS
     maros [at] k-1.com
+    
     http://www.k-1.com
 
 =head1 COPYRIGHT
 
-Text::Phonetic is Copyright (c) 2006,2007,2010 Maroš. Kollár.
+Text::Phonetic is Copyright (c) 2006-2012 Maroš Kollár 
+- L<http://www.k-1.com>
 
-This program is free software; you can redistribute
-it and/or modify it under the same terms as Perl itself.
+=head1 LICENCE
 
-The full text of the license can be found in the
-LICENSE file included with this module.
+This library is free software, you can redistribute it and/or modify
+it under the same terms as Perl itself.
 
 =cut

@@ -17,13 +17,13 @@ SYNOPSIS
       $encoded_string = $phonetic->encode($string);
 
     This module provides an easy and convinient way to encode names with
-    various phonetic algorithms. It acts as a wrapper arround other phonetic
+    various phonetic algorithms. It acts as a wrapper around other phonetic
     algorithm modules like Text::Metaphone, Text::DoubleMetaphone,
     Text::Soundex and also implements some other algorithms such as
     Text::Phonetic::DaitchMokotoff, Text::Phonetic::Koeln,
     Text::Phonetic::Phonem and Text::Phonetic::Phonix.
 
-    The module can easily be subclassed.
+    This module can easily be subclassed.
 
 DESCRIPTION
   Constructors
@@ -39,7 +39,7 @@ DESCRIPTION
     classes.
 
    load
-     $obj = Text::Phonetic->new(algorithm => $algorithm, %PARAMETERS)
+     $obj = Text::Phonetic->load(algorithm => $algorithm, %PARAMETERS)
 
     Alternative constructor which also loads the requested algorithm
     subclass.
@@ -96,7 +96,7 @@ SUBLCASSING
 
   _predicates
     Third party modules can be marked as predicates by adding the
-    "_predicates" method whick should return al list of package names. All
+    "_predicates" method which should return al list of package names. All
     predicates will be loaded if installed. If missing an exception will be
     thrown.
 
@@ -104,19 +104,11 @@ SUBLCASSING
     Text::Phonetic uses Moose to declare attributes.
 
   Helper class methods
-    _is_inlist
-       Text::Phonetic::_is_inlist($STRING,@LIST);
-       OR
-       Text::Phonetic::_is_inlist($STRING,$LIST_REF);
-
-      Returns a true value if $STRING is in the supplied list. Otherwise
-      returns false.
-
     _compare_list
-       Text::Phonetic::_compare_list($LIST1_REF,$LIST2_REF);
+         Text::Phonetic::_compare_list($LIST1_REF,$LIST2_REF);
 
-      Compares the two arrays and returns true if at least one element is
-      equal (ignoring the position) in both lists.
+        Compares the two arrays and returns true if at least one element is
+        equal (ignoring the position) in both lists.
 
   Example class
      package Text::Phonetic::MyAlgorithm;
@@ -128,13 +120,14 @@ SUBLCASSING
         isa => 'Str',
      );
  
-     __PACKAGE__->meta->make_immutable;
- 
      sub _do_encode {
          my ($self,$string) = @_;
          # Do something
          return $phonetic_representation;
      }
+ 
+     __PACKAGE__->meta->make_immutable;
+     no Moose;
      1;
 
 SEE ALSO
@@ -152,14 +145,21 @@ AUTHOR
         Maroš Kollár
         CPAN ID: MAROS
         maros [at] k-1.com
+    
         http://www.k-1.com
 
 COPYRIGHT
-    Text::Phonetic is Copyright (c) 2006,2007 Maroš. Kollár.
+    Text::Phonetic is Copyright (c) 2006-2012 Maroš Kollár -
+    <http://www.k-1.com>
 
-    This program is free software; you can redistribute it and/or modify it
+LICENCE
+    This library is free software, you can redistribute it and/or modify it
     under the same terms as Perl itself.
 
-    The full text of the license can be found in the LICENSE file included
-    with this module.
+POD ERRORS
+    Hey! The above document had some coding errors, which are explained
+    below:
+
+    Around line 310:
+        '=item' outside of any '=over'
 
