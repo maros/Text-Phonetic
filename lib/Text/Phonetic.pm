@@ -55,10 +55,8 @@ sub check_predicates {
         && ! grep { $class eq $_ } @PREDICATES_CHECKED) {
         my @predicates = $class->_predicates;
         foreach my $predicate (@predicates) {
-            my $ok = eval {
-                Class::MOP::load_class($predicate);
-            };
-            if (! $ok || $@) {
+            my $ok = Class::Load::try_load_class($predicate);
+            unless ($ok) {
                 croak("Could not load '$class' phonetic algorithm: Predicate '$predicate' is missing")
             } else {
                 push(@PREDICATES_CHECKED,$class);
@@ -81,12 +79,9 @@ sub load {
         croak("Could not load '$algorithm' phonetic algorithm: Algorithm not available");
     }
     
-    unless (Class::MOP::is_class_loaded($class)) {
-        my $ok = eval {
-            Class::MOP::load_class($class);
-        };
-        if (! $ok || $@) {
-            my $error = $@ || 'Unknown error while loading '.$class;
+    unless (Class::Load::is_class_loaded($class)) {
+        my ($ok,$error) = Class::Load::try_load_class($class);
+        unless ($ok) {
             croak("Could not load '$algorithm' phonetic algorithm: $error")
         }
     }
