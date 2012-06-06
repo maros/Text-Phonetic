@@ -24,9 +24,9 @@ throws_ok {
 
 
 my $t3 = Text::Phonetic->load(algorithm => 'Real');
-is($t3->encode('hase'),'HASE');
+is($t3->encode('hase'),'HASE','Enocde fake ok');
 
 require Text::Phonetic::Real;
 my $t4 = Text::Phonetic::Real->new();
-is($t4->encode('hase'),'HASE');
+is($t4->encode('hase'),'HASE','Enocde real ok');
 
