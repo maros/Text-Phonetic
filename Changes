@@ -1,5 +1,11 @@
 Revision history for Perl module Text::Phonetic
 
+2.04 Sat Nov 17 2012
+    - Fix failing tests
+    - Check predicates only once
+    - Dist housekeeping
+    - Update documentation
+
 2.02 Sat Oct 30 2009
     - Fix failing tests
 
