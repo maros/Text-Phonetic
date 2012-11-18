@@ -307,14 +307,12 @@ Text::Phonetic uses L<Moose> to declare attributes.
 
 =head2 Helper class methods
 
-=item _compare_list
+=head3 _compare_list
 
  Text::Phonetic::_compare_list($LIST1_REF,$LIST2_REF);
 
 Compares the two arrays and returns true if at least one element is equal 
 (ignoring the position) in both lists.  
-
-=back
 
 =head2 Example class
 
