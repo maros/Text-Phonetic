@@ -263,7 +263,7 @@ identical. 99 means that the strings match after all non-latin characters
 have been transliterated. Values in between 98 and 1 usually mean that the 
 given strings match. 0 means that the used alogorithm couldn't match the two 
 strings at all.
-C<compare> is a shortcut to the C<$obj-&gt;_do_compare($CODE1,$CODE2)> method.
+C<compare> is a shortcut to the C<$obj-E<gt>_do_compare($CODE1,$CODE2)> method.
 
 =head2 Class Methods
 
