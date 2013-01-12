@@ -12,3 +12,4 @@ Makefile.old
 Text-Phonetic-*.tar.gz
 cover_db/
 .DS_Store
+/MYMETA.*
