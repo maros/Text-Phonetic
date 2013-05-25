@@ -13,16 +13,16 @@ perl_version    '5.008';
 
 # Specific dependencies
 requires        'Moose'                 => '0.92';
-requires        'Module::Find'          => 0;
+requires        'Module::Find'          => '0.11';
 requires        'Text::Unidecode'       => 0;
 requires        'Text::Soundex'         => '3.03';
 
 recommends      'Text::Metaphone'       => 0;
 recommends      'Text::DoubleMetaphone' => 0;
 
-#feature 'Soundex support',
-#    -default   => 1,
-#    'Text::Soundex' => '3.03';
+feature 'Soundex support',
+    -default   => 1,
+    'Text::Soundex' => '3.03';
 
 feature 'Metaphone support',
     -default   => 1,
