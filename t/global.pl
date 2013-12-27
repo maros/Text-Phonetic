@@ -41,7 +41,7 @@ sub run_conditional {
     
     SKIP :{
         my $ok = eval {
-            Class::MOP::load_class($predicate_class);
+            Class::Load::load_class($predicate_class);
             return 1;
         };
         unless ($ok) {
@@ -55,7 +55,7 @@ sub load_conditional {
     
     SKIP :{
         my $ok = eval {
-            Class::MOP::load_class($predicate_class);
+            Class::Load::load_class($predicate_class);
             use_ok($test_class);
             return 1;
         };
