@@ -3,12 +3,14 @@ package Text::Phonetic::Metaphone;
 # ============================================================================
 use utf8;
 
-use Moose;
+use Moo;
 extends qw(Text::Phonetic);
 
 has 'max_length'=> (
     is              => 'rw',
-    isa             => 'Int',
+    isa             => sub {
+        die 'max_length must be an int' unless shift ~= /\d/
+    },
     documentation   => q[Limit the length of the encoded string],
     default         => 0,
 );

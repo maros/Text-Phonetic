@@ -16,6 +16,7 @@ requires        'Moose'                 => '0.92';
 requires        'Module::Find'          => '0.11';
 requires        'Text::Unidecode'       => 0;
 requires        'Text::Soundex'         => '3.03';
+requires        'Class::Load'           => 0;
 
 recommends      'Text::Metaphone'       => 0;
 recommends      'Text::DoubleMetaphone' => 0;
