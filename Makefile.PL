@@ -12,7 +12,7 @@ readme_from     $from;
 perl_version    '5.008';
 
 # Specific dependencies
-requires        'Moose'                 => '0.92';
+requires        'Moo'                   => '1.001000';
 requires        'Module::Find'          => '0.11';
 requires        'Text::Unidecode'       => 0;
 requires        'Text::Soundex'         => '3.03';
