@@ -3,7 +3,7 @@ package Text::Phonetic::DoubleMetaphone;
 # ============================================================================
 use utf8;
 
-use Moose;
+use Moo;
 extends qw(Text::Phonetic);
 
 __PACKAGE__->meta->make_immutable;

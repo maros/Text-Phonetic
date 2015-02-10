@@ -1,12 +1,13 @@
 # ============================================================================
 package Text::Phonetic;
 # ============================================================================
-use Moose;
+use Moo;
 use utf8;
 
 use Text::Unidecode qw();
 use Carp;
 use Module::Find;
+use Class::Load;
 
 our $AUTHORITY = 'cpan:MAROS';
 our $VERSION = "2.05";
@@ -20,7 +21,6 @@ our @AVAILABLE_ALGORITHMS = grep { s/^Text::Phonetic::(.+)$/$1/x }
 
 has 'unidecode' => (
     is              => 'rw',
-    isa             => 'Bool',
     default         => 1,
     required        => 1,
     documentation   => q[Transliterate strings to ASCII before processing]
@@ -65,7 +65,7 @@ sub check_predicates {
 }
 
 # ----------------------------------------------------------------------------
-# Constructor (new provided by Moose)
+# Constructor (new provided by Moo)
 
 sub load {
     my $self = shift;
@@ -302,7 +302,7 @@ loaded if installed. If missing an exception will be thrown.
 
 =head2 Object structure
 
-Text::Phonetic uses L<Moose> to declare attributes.
+Text::Phonetic uses L<Moo> to declare attributes.
 
 =head2 Helper class methods
 
@@ -316,12 +316,11 @@ Compares the two arrays and returns true if at least one element is equal
 =head2 Example class
 
  package Text::Phonetic::MyAlgorithm;
- use Moose;
+ use Moo;
  extends qw(Text::Phonetic);
  
  has someattribute => (
     is  => 'rw',
-    isa => 'Str',
  );
  
  sub _do_encode {
@@ -331,7 +330,7 @@ Compares the two arrays and returns true if at least one element is equal
  }
  
  __PACKAGE__->meta->make_immutable;
- no Moose;
+ no Moo;
  1;
 
 =head1 SEE ALSO

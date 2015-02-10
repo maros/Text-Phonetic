@@ -3,19 +3,17 @@ package Text::Phonetic::Soundex;
 # ============================================================================
 use utf8;
 
-use Moose;
+use Moo;
 extends qw(Text::Phonetic);
 
 has 'nara'=> (
     is              => 'rw',
-    isa             => 'Bool',
     documentation   => q[Use the soundex variant maintained by the National Archives and Records Administration (NARA)],
     default         => 0,
 );
 
 has 'nocode'=> (
     is              => 'rw',
-    isa             => 'Str',
     documentation   => q[Redefine the value that will be returned if the input string contains no identifiable sounds within it],
     predicate       => 'has_nocode',
 );

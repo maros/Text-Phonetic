@@ -101,7 +101,7 @@ SUBLCASSING
     thrown.
 
   Object structure
-    Text::Phonetic uses Moose to declare attributes.
+    Text::Phonetic uses Moo to declare attributes.
 
   Helper class methods
    _compare_list
@@ -112,12 +112,11 @@ SUBLCASSING
 
   Example class
      package Text::Phonetic::MyAlgorithm;
-     use Moose;
+     use Moo;
      extends qw(Text::Phonetic);
  
      has someattribute => (
         is  => 'rw',
-        isa => 'Str',
      );
  
      sub _do_encode {
@@ -127,7 +126,7 @@ SUBLCASSING
      }
  
      __PACKAGE__->meta->make_immutable;
-     no Moose;
+     no Moo;
      1;
 
 SEE ALSO
