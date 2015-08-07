@@ -9,7 +9,7 @@ extends qw(Text::Phonetic);
 has 'max_length'=> (
     is              => 'rw',
     isa             => sub {
-        die 'max_length must be an int' unless shift ~= /\d/
+        die 'max_length must be an int' unless shift =~ /\d/
     },
     documentation   => q[Limit the length of the encoded string],
     default         => 0,
