@@ -7,6 +7,9 @@ Text-Phonetic-*.*.tar.gz
 .project
 .settings/.*
 
+# exclude mymeta files
+MYMETA.{json,yml}
+
 # Avoid version control files.
 \bRCS\b
 \bCVS\b
