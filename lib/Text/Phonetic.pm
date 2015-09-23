@@ -28,7 +28,7 @@ has 'unidecode' => (
 
 after 'BUILDARGS' => sub { 
     my ($class) = @_;
-    $class->check_predicates;
+    return $class->check_predicates;
 };
 
 __PACKAGE__->meta->make_immutable;
@@ -62,6 +62,7 @@ sub check_predicates {
             }
         }
     }
+    return;
 }
 
 # ----------------------------------------------------------------------------
@@ -174,7 +175,8 @@ sub _compare_list {
         next unless defined $element1;
         foreach my $element2 (@$list2) {
             next unless defined $element2;
-            return 1 if    $element1 eq $element2;
+            return 1 
+                if $element1 eq $element2;
         }
     } 
     
