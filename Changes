@@ -1,5 +1,16 @@
 Revision history for Perl module Text::Phonetic
 
+2.06 Wed Sep 23 2015
+    - Moose -> Moo (implemented by Miquel Ruiz)
+    - Update Phonix to match WAIS (implemented by olsgaard)
+    - Fix typo (implemented by Dmitri Tikhonov)
+    - Remove mymenta.* from dist (implemented by Sandro Cazzaniga)
+
+2.05 Mon Jan 27 2014
+    - Update POD
+    - Dist housekeeping
+    - Use Class::Load instead of Class::MOP to load classes
+
 2.04 Sat Nov 17 2012
     - Fix failing tests
     - Check predicates only once

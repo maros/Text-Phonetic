@@ -10,7 +10,7 @@ use Module::Find;
 use Class::Load;
 
 our $AUTHORITY = 'cpan:MAROS';
-our $VERSION = "2.05";
+our $VERSION = "2.06";
 
 use 5.008000;
 
