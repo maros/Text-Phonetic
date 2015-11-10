@@ -3,10 +3,8 @@ package Text::Phonetic::Fake;
 # ============================================================================
 use utf8;
 
-use Moose;
+use Moo;
 extends qw(Text::Phonetic);
-
-__PACKAGE__->meta->make_immutable;
 
 our $VERSION = $Text::Phonetic::VERSION;
 

@@ -26,7 +26,7 @@ push @Text::Phonetic::AVAILABLE_ALGORITHMS,'Test';
 
 {
     package Text::Phonetic::Test;
-    use Moose;
+    use Moo;
     extends qw(Text::Phonetic);
     
     has 'attribute' => (
