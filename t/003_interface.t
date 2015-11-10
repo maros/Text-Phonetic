@@ -31,7 +31,6 @@ push @Text::Phonetic::AVAILABLE_ALGORITHMS,'Test';
     
     has 'attribute' => (
         is  => 'rw',
-        isa => 'Str',
         required => 1,
     );
     
