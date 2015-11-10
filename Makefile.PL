@@ -34,6 +34,7 @@ feature 'DoubleMetaphone support',
     'Text::DoubleMetaphone' => 0;
 
 build_requires  'Test::Most'            => 0;
+build_requires  'Test::NoWarnings'      => 0;
 
 author_requires 'Test::Pod'             => '1.14';
 author_requires 'Test::Pod::Coverage'   => '1.04';
