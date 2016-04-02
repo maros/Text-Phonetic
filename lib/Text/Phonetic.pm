@@ -228,7 +228,7 @@ This module can easily be subclassed.
  
 You can pass arbitrary attributes to the constructor. The only global 
 attribute is C<unidecode> which defaults to 1 if not set. This attribute 
-controlls if non-latin characters should be transliterated to A-Z 
+controls if non-latin characters should be transliterated to A-Z 
 (see also L<Text::Unidecode>).
 
 Additional attributes may be defined by the various implementation classes.

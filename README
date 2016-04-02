@@ -32,7 +32,7 @@ DESCRIPTION
 
     You can pass arbitrary attributes to the constructor. The only global
     attribute is "unidecode" which defaults to 1 if not set. This attribute
-    controlls if non-latin characters should be transliterated to A-Z (see
+    controls if non-latin characters should be transliterated to A-Z (see
     also Text::Unidecode).
 
     Additional attributes may be defined by the various implementation
