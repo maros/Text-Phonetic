@@ -50,3 +50,4 @@ MYMETA.{json,yml}
 #   Mac OSX SMB mount metadata files
 \B\._
 
+MYMETA.*
