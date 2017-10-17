@@ -10,11 +10,11 @@ our $VERSION = $Text::Phonetic::VERSION;
 
 sub _do_encode {
     my ($self,$string) = @_;
-    
+
     my (@character_list,$result,$last_match);
 
     $string = uc($string);
-    
+
     # Replace umlaut
     $string =~ s/ß/S/g;
     $string =~ s/[äÄ]/AE/g;
@@ -22,8 +22,8 @@ sub _do_encode {
     $string =~ s/[üÜ]/UE/g;
     
     # Replace double consonants
-    #$string =~ s/([BCDFGHJKLMNPQRSTVWXZ])\1+/$1/g;    
-    
+    #$string =~ s/([BCDFGHJKLMNPQRSTVWXZ])\1+/$1/g;
+
     # Convert string to array
     @character_list = split //,$string;
     $result = '';
@@ -166,9 +166,9 @@ Text::Phonetic::Koeln - Kölner Phonetik algorithm
 
 =head1 DESCRIPTION
 
-The "Kölner Phonetik" is a phonetic algorithm for indexing names by sound, as 
-pronounced in German. The goal is for names with the same pronunciation to be 
-encoded to the same representation so that they can be matched despite minor 
+The "Kölner Phonetik" is a phonetic algorithm for indexing names by sound, as
+pronounced in German. The goal is for names with the same pronunciation to be
+encoded to the same representation so that they can be matched despite minor
 differences in spelling.
 
 In contrast to Soundex this algorithm is suitable for long names since the
@@ -201,11 +201,11 @@ LICENSE file included with this module.
 
 =head1 SEE ALSO
 
-Description of the algorithm can be found at 
+Description of the algorithm can be found at
 L<http://de.wikipedia.org/wiki/K%C3%B6lner_Phonetik>
 
-Hans Joachim Postel: Die Kölner Phonetik. Ein Verfahren zur Identifizierung 
-von Personennamen auf der Grundlage der Gestaltanalyse. in: IBM-Nachrichten, 
+Hans Joachim Postel: Die Kölner Phonetik. Ein Verfahren zur Identifizierung
+von Personennamen auf der Grundlage der Gestaltanalyse. in: IBM-Nachrichten,
 19. Jahrgang, 1969, S. 925-931
 
 =cut
