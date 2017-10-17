@@ -18,8 +18,6 @@ has 'nocode'=> (
     predicate       => 'has_nocode',
 );
 
-__PACKAGE__->meta->make_immutable;
-
 our $VERSION = $Text::Phonetic::VERSION;
 
 sub _predicates {

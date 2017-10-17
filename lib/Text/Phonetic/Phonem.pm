@@ -6,8 +6,6 @@ use utf8;
 use Moo;
 extends qw(Text::Phonetic);
 
-__PACKAGE__->meta->make_immutable;
-
 our $VERSION = $Text::Phonetic::VERSION;
 
 our %DOUBLECHARS = (

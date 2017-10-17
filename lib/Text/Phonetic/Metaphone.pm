@@ -15,8 +15,6 @@ has 'max_length'=> (
     default         => 0,
 );
 
-__PACKAGE__->meta->make_immutable;
-
 our $VERSION = $Text::Phonetic::VERSION;
 
 sub _predicates {

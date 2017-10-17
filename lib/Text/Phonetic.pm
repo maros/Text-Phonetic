@@ -31,8 +31,6 @@ after 'BUILDARGS' => sub {
     return $class->check_predicates;
 };
 
-__PACKAGE__->meta->make_immutable;
-
 # ----------------------------------------------------------------------------
 # Class methods
 
