@@ -10,13 +10,14 @@ use Module::Find;
 use Class::Load;
 
 our $AUTHORITY = 'cpan:MAROS';
-our $VERSION = "2.08";
+our $VERSION = "2.09";
 
 use 5.008000;
 
 our $DEFAULT_ALGORITHM = 'Phonix';
 our @PREDICATES_CHECKED;
-our @AVAILABLE_ALGORITHMS = grep { s/^Text::Phonetic::(.+)$/$1/x }
+our @AVAILABLE_ALGORITHMS = grep
+    { s/^Text::Phonetic::(.+)$/$1/x }
     findsubmod Text::Phonetic;
 
 has 'unidecode' => (
